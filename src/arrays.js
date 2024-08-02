@@ -2,20 +2,40 @@
 // Ex.:
 //   greaterThanTen([1, 2, 3, 11, 12, 13]);
 //   => [11, 12, 13]
-function greaterThanTen(numbers) {}
+function greaterThanTen(numbers) {
+  return numbers.filter(number); // Used the filter method, set number as the callback function, if true the array will show only numbers over ten.
+  function number(value) {
+    // This is the call back function
+    return value > 10;
+  }
+
+  // I can't get this method below to work, had to look into the filter method for this which wasn't taught yet
+  // for (let i = 0; i < numbers.length; i++) {
+  //   if (numbers[i] >= 10) {
+  //     return numbers.push(numbers[i]);
+  //   }
+  // }
+}
 
 // Given an array of strings, return all words that start with 'b' or 'B'.
 // Ex.:
 //   bWords(['banana', 'orange', 'apple', 'Bonobo', 'kiwi', 'pear']);
 //   => ['banana', 'Bonobo]
-function bWords(words) {}
+function bWords(words) {
+  return words.filter(word); // Used the filter method as done on the first problem
+  function word(value) {
+    return value.startsWith('b') || value.startsWith('B'); // Used method shortcut startsWith to determine which words has b or B and if true it will be added to array
+  }
+}
 
 // Add all the elements from additionalItems to the end of originalArray.
 // Return the originalArray..
 // Ex.:
 //  extend([1, 2, 3], [4, 5, 6]);
 //  => [1, 2, 3, 4, 5, 6]
-function extend(originalArray, additionalItems) {}
+function extend(originalArray, additionalItems) {
+  return originalArray.concat(additionalItems); // Used concat method to merge the arrays together
+}
 
 // Return an array of all items with the given length.
 // Ex.:
