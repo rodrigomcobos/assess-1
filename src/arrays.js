@@ -3,18 +3,13 @@
 //   greaterThanTen([1, 2, 3, 11, 12, 13]);
 //   => [11, 12, 13]
 function greaterThanTen(numbers) {
-  return numbers.filter(number); // Used the filter method, set number as the callback function, if true the array will show only numbers over ten.
-  function number(value) {
-    // This is the call back function
-    return value > 10;
+  let newArr = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > 10) {
+      newArr.push(numbers[i]);
+    }
   }
-
-  // I can't get this method below to work, had to look into the filter method for this which wasn't taught yet
-  // for (let i = 0; i < numbers.length; i++) {
-  //   if (numbers[i] >= 10) {
-  //     return numbers.push(numbers[i]);
-  //   }
-  // }
+  return newArr;
 }
 
 // Given an array of strings, return all words that start with 'b' or 'B'.
@@ -22,10 +17,13 @@ function greaterThanTen(numbers) {
 //   bWords(['banana', 'orange', 'apple', 'Bonobo', 'kiwi', 'pear']);
 //   => ['banana', 'Bonobo]
 function bWords(words) {
-  return words.filter(word); // Used the filter method as done on the first problem
-  function word(value) {
-    return value.startsWith('b') || value.startsWith('B'); // Used method shortcut startsWith to determine which words has b or B and if true it will be added to array
+  let newArr = [];
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].startsWith('b') || words[i].startsWith('B')) {
+      newArr.push(words[i]);
+    }
   }
+  return newArr;
 }
 
 // Add all the elements from additionalItems to the end of originalArray.
@@ -41,13 +39,33 @@ function extend(originalArray, additionalItems) {
 // Ex.:
 //   itemsWithLength(['a', 'bbb', 'cccc', 'dddddd', 'eee'], 3);
 //   => ['bbb', 'eee']
-function itemsWithLength(items, length) {}
+function itemsWithLength(items, length) {
+  return items.filter(item); // Used the filter method again
 
+  function item(value) {
+    return value.length === length; // If the length of value is the same as length then it will be added to the array
+  }
+}
+
+// this implies NEW Array. only if it says modify existing array.
 // Return an array with every other element from the input array (start with index 0).
 // Ex.:
 //   everyOtherItem(['a', 'b', 'c', 'd', 'e']);
 //   => ['a', 'c', 'e']
-function everyOtherItem(items) {}
+function everyOtherItem(items) {
+  let newArr = [];
+  // iterate over array provided
+  for (let i = 0; i < items.length; i++) {
+    // if index is even
+    if (i % 2 === 0) {
+      // store item in new Array
+      newArr.push(items[i]);
+    }
+    // if index is odd : do nothing
+  }
+  // return the NEW Array you build with even elements.
+  return newArr;
+}
 
 // Given a list of words and a letter, return the indexes of the words that
 // start with that letter. You can assume that the words and letter will always
@@ -55,7 +73,15 @@ function everyOtherItem(items) {}
 // Ex.:
 //   findWordsStartingWith(['apple', 'banana', 'kiwi', 'pear', 'bacon'], 'b');
 //   => [1, 4]
-function findWordsStartingWith(words, letter) {}
+function findWordsStartingWith(words, letter) {
+  let newArr = [];
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].startsWith(letter)) {
+      newArr.push(i);
+    }
+  }
+  return newArr;
+}
 
 // Return the `n` smallest values in the array in descending order (largest
 // numbers first). Assume that `n` will always be less than the length of the
