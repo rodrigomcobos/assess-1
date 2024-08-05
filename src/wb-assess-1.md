@@ -28,7 +28,7 @@ let sum = 1;
 ```
 
 Which of these lines of code will cause `sum` to have a value of `2`? You can select more than one
-answer.
+answer. add
 
 - [ ] **A.** `sum++`
 - [ ] **B.** `sum += 1`
