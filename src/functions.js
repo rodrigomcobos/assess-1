@@ -98,21 +98,23 @@ function stickyCase(string) {
 //   leetspeak('javascript');
 //   => 'j4v45cr1p7'
 function leetspeak(string) {
-  const replacements = [];
-  replacements['a'] = '4';
+  const replacements = []; //create new array of replacements for the letters
+  replacements['a'] = '4'; //each item in the array created equals to a specific number in string format since we can't add numbers to strings
   replacements['e'] = '3';
   replacements['i'] = '1';
   replacements['o'] = '0';
   replacements['s'] = '5';
   replacements['t'] = '7';
 
-  let newString = '';
+  let newString = ''; //set up a new string that will replace the original string
 
   for (let i = 0; i < string.length; i++) {
+    //iterate over each letter on the string starting at 0
     if (replacements[string[i].toLowerCase()] !== undefined) {
-      newString += replacements[string[i].toLowerCase()];
+      //checks if lowercase letter in replacements array is not undefined
+      newString += replacements[string[i].toLowerCase()]; //if true then we'll add the new value in replacements array to newString
     } else {
-      newString += string[i];
+      newString += string[i]; //if false then we'll add the current letter in the iteration
     }
   }
   return newString;
