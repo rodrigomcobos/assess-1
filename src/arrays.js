@@ -32,7 +32,10 @@ function bWords(words) {
 //  extend([1, 2, 3], [4, 5, 6]);
 //  => [1, 2, 3, 4, 5, 6]
 function extend(originalArray, additionalItems) {
-  return originalArray.concat(additionalItems); // Used concat method to merge the arrays together
+  for (let i = 0; i < additionalItems.length; i++) {
+    originalArray.push(additionalItems[i]);
+  }
+  return originalArray;
 }
 
 // Return an array of all items with the given length.
@@ -40,11 +43,13 @@ function extend(originalArray, additionalItems) {
 //   itemsWithLength(['a', 'bbb', 'cccc', 'dddddd', 'eee'], 3);
 //   => ['bbb', 'eee']
 function itemsWithLength(items, length) {
-  return items.filter(item); // Used the filter method again
-
-  function item(value) {
-    return value.length === length; // If the length of value is the same as length then it will be added to the array
+  let newArr = [];
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].length === length) {
+      newArr.push(items[i]);
+    }
   }
+  return newArr;
 }
 
 // this implies NEW Array. only if it says modify existing array.
@@ -54,16 +59,11 @@ function itemsWithLength(items, length) {
 //   => ['a', 'c', 'e']
 function everyOtherItem(items) {
   let newArr = [];
-  // iterate over array provided
   for (let i = 0; i < items.length; i++) {
-    // if index is even
     if (i % 2 === 0) {
-      // store item in new Array
       newArr.push(items[i]);
     }
-    // if index is odd : do nothing
   }
-  // return the NEW Array you build with even elements.
   return newArr;
 }
 
@@ -86,10 +86,21 @@ function findWordsStartingWith(words, letter) {
 // Return the `n` smallest values in the array in descending order (largest
 // numbers first). Assume that `n` will always be less than the length of the
 // array.
-// Ex.:
+
 //   smallestNItems([1, 30, 4, 21, 100000], 3);
 //   => [21, 4, 1]
-function smallestNItems(items, n) {}
+function smallestNItems(items, n) {
+  function sortFunc(a, b) {
+    return a - b;
+  }
+  function reverseFunc(a, b) {
+    return b - a;
+  }
+  let sorted = items.sort(sortFunc);
+  let sliced = sorted.slice(0, n);
+
+  return sliced.sort(reverseFunc);
+}
 
 // Search for a value in the array and return its index. If the value appears
 // more than once, return the index of the *FIRST* occurrence of the value. If
@@ -97,14 +108,26 @@ function smallestNItems(items, n) {}
 // Ex.:
 //   findIndex(['a', 'b', 'c', 'a', 'b', 'c'], 'c');
 //   => 2
-function findIndex(items, value) {}
+function findIndex(items, value) {
+  for (let i = 0; i < items.length; i++) {
+    if (items[i] === value) {
+      return i;
+    }
+  }
+}
 
 // Given a start number and stop number, return a new array containing all the numbers
 // between the start and stop number.
 // Ex.:
 //   range(1, 5);
 //   => [1, 2, 3, 4, 5]
-function range(start, stop) {}
+function range(start, stop) {
+  let newArr = [];
+  for (let num = start; num <= stop; num++) {
+    newArr.push(num);
+  }
+  return newArr;
+}
 
 export {
   bWords,

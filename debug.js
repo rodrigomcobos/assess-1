@@ -40,15 +40,3 @@
 // }
 
 // everyOtherItem(['a', 'b', 'c', 'd', 'e']);
-
-function findWordsStartingWith(words, letter) {
-  let newArr = [];
-  for (let i = 0; i < words.length; i++) {
-    if (words[i].startsWith(letter)) {
-      newArr.push(i);
-    }
-  }
-  return newArr;
-}
-
-findWordsStartingWith(['apple', 'banana', 'kiwi', 'pear', 'bacon'], 'b');

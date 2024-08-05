@@ -47,21 +47,33 @@ function generateSentence(person, beverage, location) {
 //   censorVowels('javascript');
 //   => 'j*v*scr*pt'
 function censorVowels(string) {
-  return string.replace(/[ai]/g, '*'); // Used a regular expression to remove all As and Is globally and replace it with *
+  let newWord = '';
+
+  for (let currChar = 0; currChar < string.length; currChar++) {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    let starChar = '';
+
+    for (let i = 0; i < vowels.length; i++) {
+      if (string[currChar] === vowels[i]) {
+        starChar = '*';
+      }
+    }
+
+    if (starChar === '*') {
+      newWord += starChar;
+    } else {
+      newWord += string[currChar];
+    }
+  }
+  return newWord;
+  // return string.replace(/[ai]/g, '*'); // Used a regular expression to remove all As and Is globally and replace it with *
 }
 
 // Return the given string in sticky case.
 // Ex.:
 //   stickyCase('hello world');
 //   => 'hElLo wOrLd'
-function stickyCase(string) {
-  // let array = string.split('');
-  // for (let i = 0; i < array.length; i++) {
-  //   if (array[i].length % 2 === 0) {
-  //     array[i].toLowerCase;
-  //   }
-  // }
-}
+function stickyCase(string) {}
 
 // Return the given string in leetspeak. Leetspeak is a modified version of
 // English where characters are replaced by numbers or symbols. For this
@@ -75,27 +87,7 @@ function stickyCase(string) {
 // Ex.:
 //   leetspeak('javascript');
 //   => 'j4v45cr1p7'
-// function leetspeak(string) {
-//   return string.split('').map(char);
-
-//   function char(char) {
-//     if (char === 'a') {
-//       return '4';
-//     } else if (char === 'e') {
-//       return '3';
-//     } else if (char === 'i') {
-//       return '1';
-//     } else if (char === 'o') {
-//       return '0';
-//     } else if (char === 's') {
-//       return '5';
-//     } else if (char === 't') {
-//       return '7';
-//     } else {
-//       return char;
-//     }
-//   } .join('');
-// }
+function leetspeak(string) {}
 
 export {
   approximatelyEqual,
